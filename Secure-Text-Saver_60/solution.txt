@@ -1,0 +1,17 @@
+We can unzip the jar and decompile the various class files found within.
+
+Decompiling Login_Page.class gives us the following:
+
+    ...
+    public static void write() {
+            byte[] arr = new byte[]{115, 99, 116, 102, 123, 119, 48, 119, 95, 116, 104, 52, 116, 95, 119, 52, 53, 95, 112, 114, 51, 55, 55, 121, 95, 101, 52, 53, 121, 125};
+            accounts.get(0).addText(new String(arr));
+    }
+    ...
+
+The array seems suspicious, so let's print out the ascii characters associated with those
+numbers.
+
+>>> f = [115, 99, 116, 102, 123, 119, 48, 119, 95, 116, 104, 52, 116, 95, 119, 52, 53, 95, 112, 114, 51, 55, 55, 121, 95, 101, 52, 53, 121, 125]
+>>> print "".join([chr(x) for x in f])
+sctf{w0w_th4t_w45_pr377y_e45y}
