@@ -1,0 +1,11 @@
+The website gives us a link to source.php. This might have a vulnerability. Apparently, we get the flag if the variable thepassword_123 is equal
+to whatever we input as our password.
+
+The variable password_123 is probably defined in secret.php, but the variable pass is obtained from extracting the data from the POST request.
+extract($_POST) is where the vulnerability is, as we can redefine the
+variables.
+
+Doing curl -d "pass=hi&thepassword_123=hi" http://ducks.sctf.michaelz.xyz/
+will give you the flag.
+
+sctf{maybe_i_shouldn't_have_extracted_everything_huh}
