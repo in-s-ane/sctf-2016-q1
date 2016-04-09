@@ -1,0 +1,18 @@
+Decompiling the Cookie class found in the jar reveals the following bit of information:
+
+    MessageDigest digest = MessageDigest.getInstance("MD5");
+    byte[] arr = digest.digest(new String(this.passwordField1.getPassword()).getBytes("UTF-8"));
+    String md5 = new BigInteger(1, arr).toString(16);
+    System.out.println(md5);
+    String answer = "fdf87a05e2169b88a8db5a1ebc15fa50";
+    if (md5.equals(answer)) {
+        System.out.println("success! it's working!");
+    }
+
+The md5 hash of our input is being checked against the string `answer`, so let's try looking up the hash.
+https://hashkiller.co.uk/md5-decrypter.aspx
+
+We get that the correct password is "thisisaverystrongpassword".
+
+Inputting that into the text field gives us the flag:
+sctf{g3t_y0ur_h4nd_0ut_0f_my_c00k13_j4r!}
