@@ -1,0 +1,16 @@
+Disassembling the main function of the executable gives us the following:
+
+...
+0x0000000000400692 <+60>:	callq  0x400550 <scanf@plt>
+0x0000000000400697 <+65>:	mov    -0x4(%rbp),%eax
+0x000000000040069a <+68>:	cmp    $0x5b74,%eax
+...
+
+The program seems to be comparing our input to 0x5b74, and will print out the flag if it matches.
+0x5b74 is equal to 23412 in decimal.
+
+What is the magic password:
+23412
+Correct! Your flag is: h4x0r!!!
+
+sctf{h4x0r!!!}
