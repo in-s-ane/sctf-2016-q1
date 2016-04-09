@@ -43,10 +43,10 @@ while True:
         try:
             part = sock.recv(4096)
             data += part
-            if "INCORRECT" in part or "sctf" in part or "FLAG" in part:
-                break
         except:
             break
+    if "INCORRECT" in part or "sctf" in part or "FLAG" in part:
+        break
 
     print data
 
