@@ -1,0 +1,19 @@
+Not much different from the last one.
+
+Disassembling the main function of the binary gives us the following:
+
+...
+0x0000000000400687 <+49>:	callq  0x400550 <scanf@plt>
+0x000000000040068c <+54>:	mov    -0x8(%rbp),%eax
+0x000000000040068f <+57>:	cmp    $0x30dda83,%eax
+0x0000000000400694 <+62>:	jne    0x400711 <main+187>
+...
+
+Once again, our input is being compared against a number, which is 0x30dda83 in hexadecimal, or
+51239555 in base 10.
+
+What is the magic password?
+51239555
+Correct! Your flag is: 51196695
+
+sctf{51196695}
