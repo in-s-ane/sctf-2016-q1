@@ -1,0 +1,7 @@
+Looking at the hex of the given image reveals a jpg file hidden within.
+
+$ binwalk --dd "jpeg:jpg" carter.jpg
+
+The flag is in the second image.
+
+sctf{tfw_d4nk_m3m3s_w1ll_a1w4y5_pr3v4il}
