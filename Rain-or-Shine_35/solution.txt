@@ -1,0 +1,16 @@
+Running `binwalk` on the wav file reveals a hidden tiff file within, which we can extract with
+`binwalk -e rain.wav`.
+
+Opening up the tiff shows what looks to be a qr code, but it's all messed up.
+Looking at the exif reveals the following:
+
+...
+History Parameters              : from image/png to image/tiff
+...
+
+If we convert the tiff back into an image (http://image.online-convert.com/convert-to-png), we get the four original
+pieces of the qr code.
+
+Stitch them together and scan the resulting qr code to get the flag.
+
+sctf{5t3g0n4gr4phy_i5_fun_r1t3?}
