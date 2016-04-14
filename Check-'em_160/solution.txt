@@ -1,0 +1,23 @@
+The problems asks us to look at the given program, and find a precondition that will result in the
+program completing without error, or `panic`ing.
+
+Looking a bit closer at the program reveals that there are several statements that result in the program panicking.
+
+...
+if false { skip } else { panic };
+...
+
+Looking at the hint, we find an article on Wikipedia talking about weakest preconditions.
+https://en.wikipedia.org/wiki/Predicate_transformer_semantics#Weakest_preconditions
+
+...
+wp(abort, R) => false
+...
+
+In other words, the precondition on the statement `abort` that will return `R` is false.
+
+Input false into the server and get the flag.
+
+$ curl http://problems4.2016q1.sctf.io:11424/submit --data "prog=false"
+
+sctf{program_VERIFIED_programmer_VERIFIED}
